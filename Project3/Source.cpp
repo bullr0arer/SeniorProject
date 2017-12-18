@@ -15,7 +15,7 @@
 /*The MusicScroller relies on Magick++ (http://imagemagick.sourceforge.net/http/www/windows.html), its dependency: GhostScript  google chrome 
 being installed (in the default directories). 
 
-Application MUST be executed in release mode
+Application MUST be executed in release mode x64
 
 This program is for educational purposes only.
 */
