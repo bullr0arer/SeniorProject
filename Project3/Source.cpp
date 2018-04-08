@@ -12,7 +12,7 @@
 #include "Session.h";
 #include "PathName.h";
 
-/*The MusicScroller relies on Magick++ (http://imagemagick.sourceforge.net/http/www/windows.html), its dependency: GhostScript  google chrome 
+/*The MusicScroller relies on Magick++ (http://imagemagick.sourceforge.net/http/www/windows.html), its dependency: GhostScript, and google chrome 
 being installed (in the default directories). 
 
 Application MUST be executed in release mode
@@ -312,18 +312,18 @@ static int handler(Session *thisSession, int selection)
 				rowH = ((rowSpots[line] - rowSpots[line - 1]) / 2) + ((rowSpots[line + 1] - rowSpots[line]) / 2); 
 			}
 
-			double thisFactor = rowH / pStor[y].getHeight();                      // page coverage factor
-			double spl = spm * mCount;											  // spl= seconds per line 
+			double thisFactor = rowH / pStor[y].getHeight();                      
+			double spl = spm * mCount;											   
 
-			double ticks = thisFactor * ticksPerPage * 30;						  // mouse wheel rotation to clear line * smoothness factor
-			int pace = int(spl * 1000);									  // ms for this line
-			double msPerTick = pace / ticks;							  // ms per tick
+			double ticks = thisFactor * ticksPerPage * 30;						  
+			int pace = int(spl * 1000);									  
+			double msPerTick = pace / ticks;							  
 
 			for (int r = 0; r < ticks; r++) {
 				if (!GetAsyncKeyState(VK_ESCAPE))
 				{
 					Scroller scroll(msPerTick, &timer);
-					mouse_event(MOUSEEVENTF_WHEEL, 0, 0, -MINWHEELMOVEMENT / 30, 0);    //wheel degree / smoothness factor
+					mouse_event(MOUSEEVENTF_WHEEL, 0, 0, -MINWHEELMOVEMENT / 30, 0);    
 				}
 				else {
 					goto label;
